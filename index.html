@@ -1,161 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwasthyaSetu AI | Static Demo</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwasthyaSetu AI | Demo</title>
+
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+/* ===== ROOT ===== */
+:root {
+  --primary: #2563eb;
+  --teal: #0d9488;
+  --green: #22c55e;
+  --red: #ef4444;
+
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --sidebar: #0f172a;
+
+  --text: #0f172a;
+  --subtext: #64748b;
+  --border: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+}
+
+/* ===== LAYOUT ===== */
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+aside {
+  width: 250px;
+  background: var(--sidebar);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav a {
+  display: flex;
+  gap: 10px;
+  padding: 14px 20px;
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.nav a:hover, .active {
+  background: rgba(37,99,235,0.2);
+  color: white;
+}
+
+/* ===== MAIN ===== */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  flex: 1;
+}
+
+.card h2 {
+  font-size: 28px;
+}
+
+/* ===== BUTTON ===== */
+button {
+  padding: 10px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: var(--subtext);
+}
+</style>
 </head>
+
 <body>
-    <div class="bg-layer">
-        <div class="particle-grid"></div>
-        <div class="blob" style="top: -10%; left: -10%; width: 50%; height: 50%; background: rgba(37, 99, 235, 0.1);"></div>
-    </div>
 
-    <div class="app-container">
-        <!-- Sidebar -->
-        <aside>
-            <div class="logo-section">
-                <div class="logo-box">S</div>
-                <h1 style="font-size: 20px; font-weight: 700;">SwasthyaSetu</h1>
-            </div>
+<div class="app">
 
-            <nav class="nav-links">
-                <a href="#dashboard" class="nav-item active" data-page="dashboard">
-                    <i data-lucide="layout-dashboard" size="20"></i>
-                    <span>Health Center</span>
-                </a>
-                <a href="#upload" class="nav-item" data-page="upload">
-                    <i data-lucide="file-up" size="20"></i>
-                    <span>Vault Upload</span>
-                </a>
-                <a href="#reports" class="nav-item" data-page="reports">
-                    <i data-lucide="clipboard-list" size="20"></i>
-                    <span>Medical Records</span>
-                </a>
-                <a href="#claims" class="nav-item" data-page="claims">
-                    <i data-lucide="shield" size="20"></i>
-                    <span>Clinical Audit</span>
-                </a>
-                <a href="#diseases" class="nav-item" data-page="diseases">
-                    <i data-lucide="map" size="20"></i>
-                    <span>Outbreak Radar</span>
-                </a>
-                <a href="#profile" class="nav-item" data-page="profile">
-                    <i data-lucide="user" size="20"></i>
-                    <span>Patient Identity</span>
-                </a>
+<!-- SIDEBAR -->
+<aside>
+  <div class="logo">SwasthyaSetu</div>
+  <div class="nav">
+    <a href="#" class="active">Dashboard</a>
+    <a href="#">Upload</a>
+    <a href="#">Reports</a>
+    <a href="#">Clinical Audit</a>
+    <a href="#">Data Lab</a>
+  </div>
+</aside>
 
-                <div class="nav-divider">Innovation Engine</div>
-                <a href="#problems" class="nav-item" data-page="problems">
-                    <i data-lucide="flask-conical" size="20"></i>
-                    <span>Challenges</span>
-                </a>
-                <a href="#ideas" class="nav-item" data-page="ideas">
-                    <i data-lucide="lightbulb" size="20"></i>
-                    <span>Clinical Ideas</span>
-                </a>
-                <a href="#sandbox" class="nav-item" data-page="sandbox">
-                    <i data-lucide="database" size="20"></i>
-                    <span>Data Lab</span>
-                </a>
-                <a href="#settings" class="nav-item" data-page="settings">
-                    <i data-lucide="settings" size="20"></i>
-                    <span>Preferences</span>
-                </a>
-            </nav>
+<!-- MAIN -->
+<main>
 
-            <div style="padding: 24px; border-top: 1px solid var(--border-main);">
-                <div class="nav-item" style="color: var(--medical-error);">
-                    <i data-lucide="log-out" size="18"></i>
-                    <span>Terminate Demo</span>
-                </div>
-            </div>
-        </aside>
+<header>
+  <input type="text" id="search" placeholder="Search..." oninput="showSuggestions()">
+  <div id="suggestions"></div>
+</header>
 
-        <!-- Main Content -->
-        <main>
-            <header>
-                <div class="search-box">
-                    <i data-lucide="search" size="18" style="color: var(--text-secondary);"></i>
-                    <input type="text" placeholder="Lookup clinical codes or records...">
-                </div>
+<!-- DASHBOARD -->
+<div class="cards">
+  <div class="card">
+    <p>Health Score</p>
+    <h2 id="score">85%</h2>
+  </div>
+  <div class="card">
+    <p>Reports</p>
+    <h2 id="reports">0</h2>
+  </div>
+</div>
 
-                <div class="header-actions">
-                    <div class="icon-btn">
-                        <i data-lucide="bell" size="20"></i>
-                    </div>
-                    <div class="icon-btn" id="theme-toggle">
-                        <i data-lucide="moon" size="20"></i>
-                    </div>
-                    <div class="user-profile">
-                        <div style="text-align: right; margin-right: 12px;">
-                            <p style="font-size: 14px; font-weight: 700;" id="user-name">Authorized Guest</p>
-                            <p style="font-size: 10px; font-weight: 800; color: var(--medical-green); text-transform: uppercase;">Verified Node</p>
-                        </div>
-                        <div class="avatar">
-                            <i data-lucide="user" size="22" style="color: white;"></i>
-                        </div>
-                    </div>
-                </div>
-            </header>
+<!-- UPLOAD -->
+<div class="section">
+  <h3>Upload Report</h3>
+  <input type="file" id="file">
+  <button onclick="upload()">Upload</button>
+  <p id="uploadStatus"></p>
+</div>
 
-            <div id="content">
-                <!-- Pages will be rendered here -->
-                <div id="dashboard-page" class="page">
-                    <div class="mb-8">
-                        <h2 class="text-4xl font-bold">Welcome back, <span style="color: var(--accent-primary);" id="welcome-name">Guest</span></h2>
-                        <p class="text-slate-500 mt-1">Here's a quick look at your health ecosystem today.</p>
-                    </div>
+<!-- REPORTS -->
+<div class="section">
+  <h3>My Reports</h3>
+  <ul id="reportList"></ul>
+</div>
 
-                    <div class="card-grid">
-                        <div class="premium-card">
-                            <p class="card-title">Health Score</p>
-                            <p class="card-value">85%</p>
-                            <div style="font-size: 10px; font-weight: 800; color: var(--medical-green); padding: 4px 12px; border-radius: 20px; background: rgba(34, 197, 94, 0.1); width: fit-content;">+2% improvement</div>
-                        </div>
-                        <div class="premium-card">
-                            <p class="card-title">Reports Filed</p>
-                            <p class="card-value" id="stats-reports">12</p>
-                            <div style="font-size: 10px; font-weight: 800; color: var(--accent-primary); padding: 4px 12px; border-radius: 20px; background: rgba(37, 99, 235, 0.1); width: fit-content;">Updated Live</div>
-                        </div>
-                        <div class="premium-card">
-                            <p class="card-title">Claim Status</p>
-                            <p class="card-value">Active</p>
-                            <div style="font-size: 10px; font-weight: 800; color: var(--secondary-teal); padding: 4px 12px; border-radius: 20px; background: rgba(13, 148, 136, 0.1); width: fit-content;">AI Audited</div>
-                        </div>
-                    </div>
+<!-- AI ANALYSIS -->
+<div class="section">
+  <h3>AI Summary</h3>
+  <p id="summary">Upload a file to see analysis...</p>
+</div>
 
-                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
-                        <div>
-                            <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
-                                <i data-lucide="file-text" style="color: var(--accent-primary);"></i> Diagnostic Timeline
-                            </h3>
-                            <div id="activity-list" style="display: flex; flex-direction: column; gap: 16px;">
-                                <!-- Simulated activities -->
-                            </div>
-                        </div>
-                        <div>
-                            <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 8px;">
-                                <i data-lucide="plus" style="color: var(--secondary-teal);"></i> Clinic Actions
-                            </h3>
-                            <div style="display: flex; flex-direction: column; gap: 16px;">
-                                <button class="btn btn-primary" onclick="window.location.hash = '#upload'">Vault Upload</button>
-                                <button class="btn btn-primary" onclick="window.location.hash = '#claims'" style="background: var(--secondary-teal);">Clinical Audit</button>
-                                <button class="btn btn-primary" onclick="window.location.hash = '#sandbox'" style="background: #6366f1;">Data Lab</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+<!-- DATA LAB -->
+<div class="section">
+  <h3>Data Lab</h3>
+  <input id="topic" placeholder="Topic">
+  <input id="desc" placeholder="Description">
+  <input id="link" placeholder="Link">
+  <button onclick="addDataset()">Add Dataset</button>
+  <ul id="datasets"></ul>
+</div>
 
-    <script src="script.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+<footer>
+  © 2026 SwasthyaSetu AI • Demo Version
+</footer>
+
+</main>
+</div>
+
+<script>
+lucide.createIcons();
+
+/* ===== UPLOAD SIMULATION ===== */
+function upload() {
+  let file = document.getElementById("file").files[0];
+  if (!file) return alert("Select file");
+
+  document.getElementById("uploadStatus").innerText = "Analyzing...";
+  
+  setTimeout(() => {
+    let reports = JSON.parse(localStorage.getItem("reports")) || [];
+    reports.push(file.name);
+    localStorage.setItem("reports", JSON.stringify(reports));
+
+    document.getElementById("uploadStatus").innerText = "Upload Complete";
+    document.getElementById("summary").innerText =
+      "This document appears to be a medical report showing normal vitals with minor observations.";
+
+    loadReports();
+  }, 1500);
+}
+
+/* ===== LOAD REPORTS ===== */
+function loadReports() {
+  let list = document.getElementById("reportList");
+  list.innerHTML = "";
+
+  let reports = JSON.parse(localStorage.getItem("reports")) || [];
+  document.getElementById("reports").innerText = reports.length;
+
+  reports.forEach(r => {
+    let li = document.createElement("li");
+    li.innerHTML = r + " <button onclick='download(\""+r+"\")'>Download</button>";
+    list.appendChild(li);
+  });
+}
+
+/* ===== DOWNLOAD ===== */
+function download(name) {
+  let blob = new Blob(["Demo PDF content"], { type: "application/pdf" });
+  let a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  a.click();
+}
+
+/* ===== SEARCH SUGGESTIONS ===== */
+let suggestions = ["Diabetes", "Heart Report", "Blood Test", "MRI Scan"];
+
+function showSuggestions() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let box = document.getElementById("suggestions");
+  box.innerHTML = "";
+
+  suggestions
+    .filter(s => s.toLowerCase().includes(input))
+    .forEach(s => {
+      let div = document.createElement("div");
+      div.innerText = s;
+      box.appendChild(div);
+    });
+}
+
+/* ===== DATA LAB ===== */
+function addDataset() {
+  let topic = document.getElementById("topic").value;
+  let desc = document.getElementById("desc").value;
+  let link = document.getElementById("link").value;
+
+  let data = JSON.parse(localStorage.getItem("datasets")) || [];
+  data.push({ topic, desc, link });
+  localStorage.setItem("datasets", JSON.stringify(data));
+
+  loadDatasets();
+}
+
+function loadDatasets() {
+  let list = document.getElementById("datasets");
+  list.innerHTML = "";
+
+  let data = JSON.parse(localStorage.getItem("datasets")) || [];
+
+  data.forEach(d => {
+    let li = document.createElement("li");
+    li.innerHTML = `<b>${d.topic}</b> - ${d.desc} 
+    <button onclick="window.open('${d.link}')">Open</button>`;
+    list.appendChild(li);
+  });
+}
+
+/* ===== INIT ===== */
+loadReports();
+loadDatasets();
+</script>
+
 </body>
 </html>
